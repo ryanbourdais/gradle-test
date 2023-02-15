@@ -23,7 +23,7 @@ class AppTest {
     @Test
     public void shouldEqualThree()
     {
-        float correctAnswer = 4;
+        float correctAnswer = 3;
         assertEquals(correctAnswer, Calculator.Subtraction(5, 2), 0.000001);
     }
 
