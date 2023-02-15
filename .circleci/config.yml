@@ -22,6 +22,8 @@ jobs:
       - checkout
       - run: ./gradlew build
       - run: ./gradlew run
+      - store_artifacts:
+          path: app/build
 
 workflows:
   test-gradle:
