@@ -11,8 +11,8 @@ jobs:
       - run: ./gradlew tasks
       - run: ./gradlew check
       - run: ./gradlew test
-      - gradle/collect_test_results
-        test_results_path: 'app/build/test-results/TEST-gradle.test.AppTest.xml'
+      - gradle/collect_test_results:
+          test_results_path: app/build/test-results/TEST-gradle.test.AppTest.xml
       - store_artifacts:
           path: app/build/test-results/TEST-gradle.test.AppTest.xml
   gradle-build:
@@ -20,8 +20,8 @@ jobs:
       - image: cimg/openjdk:19.0.2
     steps:
       - checkout
-      - ./gradlew build
-      - ./gradlew run
+      - run: ./gradlew build
+      - run: ./gradlew run
 
 workflows:
   test-gradle:
