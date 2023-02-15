@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - run: ./gradlew tasks
-      - run: ./gradlew check
+      - run: ./gradlew check --continue
       - run: ./gradlew test --continue
       - gradle/collect_test_results:
           test_results_path: app/build/test-results
