@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   gradle: circleci/gradle@3.0.0
+  android: circleci/android@2.2.0
 
 jobs:
   gradle-test:
@@ -8,6 +9,9 @@ jobs:
       - image: cimg/openjdk:19.0.2
     steps:
       - checkout
+      - run: sudo apt update
+      - android/change-java-version:
+          java-version: 17
       - run: ./gradlew tasks
       - run: ./gradlew check
       - run: ./gradlew test
@@ -20,6 +24,9 @@ jobs:
       - image: cimg/openjdk:19.0.2
     steps:
       - checkout
+      - run: sudo apt update
+      - android/change-java-version:
+          java-version: 17
       - run: ./gradlew build
       - run: ./gradlew run
       - store_artifacts:
